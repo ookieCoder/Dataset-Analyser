@@ -3,7 +3,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 def run_bias_analysis(df, target, out_dir):
-
     # CLASS DISTRIBUTION
     class_plot = df[target].value_counts()
     class_plot.plot(kind="bar")

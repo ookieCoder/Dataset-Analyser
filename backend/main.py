@@ -12,7 +12,7 @@ app = FastAPI(title="CSV Bias & SMOTE API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # restrict later if needed
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

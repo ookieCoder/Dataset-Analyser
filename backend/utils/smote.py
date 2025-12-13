@@ -6,13 +6,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def run_smote(df, target, out_dir):
-
     numeric_df = df.select_dtypes(include="number")
     if target not in numeric_df.columns:
         return  # SMOTE only works on numeric targets
 
     X = numeric_df.drop(columns=[target])
-    y = df[target]
+    y = df[target].astype(int)
 
     # Before SMOTE
     y.value_counts().plot(kind="bar")
