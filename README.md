@@ -8,23 +8,114 @@ A full-stack web application that:
 - Generates fairness-weighted datasets
 - Returns downloadable output files
 
+---
+
+## Live Demo
+
+- **Web App:**  
+   https://dataset-bias-analyser.onrender.com
+  
+---
+
 ## Tech Stack
-- Frontend: Next.js + Tailwind CSS
-- Backend: FastAPI + Pandas
-- ML: Scikit-learn, Imbalanced-learn
-- Hosting: Render
+- **Frontend:** Next.js (App Router) + Tailwind CSS
+- **Backend:** FastAPI + Pandas
+- **ML:** Scikit-learn, Imbalanced-learn (SMOTE)
+- **Hosting:** Render
+- **Architecture:** Monorepo (frontend + backend)
+
+---
 
 ## Features
 - CSV upload via web UI
-- Automated bias detection
-- SMOTE-based balancing
-- Sample weighting for fairness
-- Downloadable processed datasets
+- Automatic target variable detection
+- Dataset bias analysis
+- SMOTE-based class balancing
+- Fairness-aware sample weighting
+- Downloadable processed output files
+- Stateless backend with per-upload isolation
+
+---
 
 ## Deployment
-- Frontend and backend deployed as separate Render services from the same repository.
 
-## Usage
-1. Upload a CSV file
-2. System processes dataset
-3. Download generated files
+- Frontend and backend are deployed as **separate Render Web Services**
+- Both services are sourced from the **same GitHub repository**
+- Backend URL is injected into frontend using environment variables
+
+---
+
+## Run Locally (Development)
+
+### 1. Prerequisites
+
+Before running the project, ensure the following are installed on your machine:
+
+- System Tools
+- Git
+- Node.js (v16+ recommended)
+- Python 3.10+
+- npm or yarn
+- pip
+  
+### 2. Clone the repository
+```bash
+git clone https://github.com/ookieCoder/Dataset-Analyser.git
+cd Dataset-Analyser
+```
+### 3. Backend Setup
+
+Create a Python Virtual Environment
+```bash
+cd backend
+python -m venv venv
+```
+
+Activate Virtual Environment
+```bash
+# macOS / Linux
+source venv/bin/activate
+
+# Windows
+venv\Scripts\Activate
+```
+
+### 4. Install Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+```bash
+npm install
+```
+
+### 5. Running the Application Locally
+**Start the Backend**
+```bash
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+Backend will run at: http://localhost:8000
+
+**Start the Frontend**
+- Open a new terminal, from the root project directory:
+```bash
+cd app
+npm run dev
+```
+Frontend will run at http://localhost:3000
+
+### 6. Usage
+
+- Open your browser to http://localhost:3000
+- Upload a CSV dataset
+- Select or confirm the target variable
+- Initiate analysis
+- Review bias metrics and processed output (SMOTE)
+- Download partitioned/balanced files
+
+
+
+
+
+
+
