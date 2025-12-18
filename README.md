@@ -14,7 +14,24 @@ A full-stack web application that:
 
 - **Web App:**  
    https://dataset-bias-analyser.onrender.com
-  
+
+- **Sample Dataset:**
+   [dataset.csv](public/dataset.csv)
+
+- **Sample Output:**
+
+   [bias_report.txt](public/bias_report.txt) | 
+   [smote_test.csv](public/smote_test.csv) | 
+   [smote_train.csv](public/smote_train.csv) | 
+   [weighted_gender.csv](public/weighted_gender.csv) | 
+   [weighted_race.csv](public/weighted_race.csv)
+
+   ![Class Distribution](public/class_distribution.png)
+   ![Correlation Matrix](public/correlation_matrix.png)
+   ![Sensitive Gender Bias](public/sensitive_gender_bias.png)
+   ![Sensitive Race Bias](public/sensitive_race_bias.png)
+   ![Smote Before](public/smote_before.png)
+   ![Smote After](public/smote_after.png)
 ---
 
 ## Tech Stack
@@ -82,7 +99,6 @@ venv\Scripts\Activate
 
 ### 4. Install Dependencies
 ```bash
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
 ```bash
@@ -99,7 +115,6 @@ Backend will run at: http://localhost:8000
 **Start the Frontend**
 - Open a new terminal, from the root project directory:
 ```bash
-cd app
 npm run dev
 ```
 Frontend will run at http://localhost:3000
