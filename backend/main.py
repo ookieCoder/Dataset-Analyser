@@ -5,7 +5,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from utils.bias_analysis import run_bias_analysis
 from utils.smote import run_smote
 
-import shutil, os, pandas as pd, uuid
+import os
+import shutil
+import uuid
+
+import pandas as pd
 
 # -------------------- APP SETUP --------------------
 app = FastAPI(title="CSV Bias & SMOTE API")
