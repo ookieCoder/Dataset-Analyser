@@ -13,9 +13,20 @@ def run_bias_analysis(df, target, out_dir):
     numeric_df = df.select_dtypes(include="number")
     if numeric_df.shape[1] > 1:
         corr = numeric_df.corr()
-        sns.heatmap(corr, annot=True, cmap="coolwarm")
+        fig_size = max(12, numeric_df.shape[1] * 0.5)
+        plt.figure(figsize=(fig_size, fig_size))
+        sns.heatmap(
+            corr,
+            annot=numeric_df.shape[1] <= 15,  # only annotate if small enough
+            fmt=".2f",
+            cmap="coolwarm",
+            vmin=-1, vmax=1,
+            linewidths=0.3,
+            square=True
+        )
         plt.title("Correlation Matrix")
-        plt.savefig(f"{out_dir}/correlation_matrix.png")
+        plt.tight_layout()
+        plt.savefig(f"{out_dir}/correlation_matrix.png", dpi=150)
         plt.clf()
 
     # DETECT SENSITIVE FEATURES
