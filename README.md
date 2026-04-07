@@ -38,6 +38,7 @@ A full-stack web application that:
 - **Frontend:** Next.js (App Router) + Tailwind CSS
 - **Backend:** FastAPI + Pandas
 - **ML:** Scikit-learn, Imbalanced-learn (SMOTE)
+- **Infrastructure:** Docker, Docker Compose
 - **Hosting:** Render
 - **Architecture:** Monorepo (frontend + backend)
 
@@ -62,11 +63,27 @@ A full-stack web application that:
 
 ---
 
-## Run Locally (Development)
+## Run with Docker (Containerization)
+
+The easiest and recommended way to run the full application stack is using Docker Compose. This method ensures consistent environments and simplifies setup:
+
+```bash
+# Make sure Docker Desktop / Docker Engine is running
+docker-compose up --build
+```
+
+- **Frontend Web App:** http://localhost:3000
+- **Backend API:** http://localhost:8000
+
+To stop the containers, use `Ctrl+C` and then optionally run `docker-compose down` to clean up.
+
+---
+
+## Run Locally (Manual Setup)
 
 ### 1. Prerequisites
 
-Before running the project, ensure the following are installed on your machine:
+Before running the project locally without Docker, ensure the following are installed on your machine:
 
 - System Tools
 - Git
